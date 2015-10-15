@@ -20,21 +20,12 @@ public class Calendar
 	public Calendar(int month, int year) throws IOException
 	{
 		this.monthNumber = month;
-		this.listOfDateForAMonth = listOfDateForAMonth(month, year);
+		this.listOfDateForAMonth = getAllDatesInAMonthOfOneYear(month, year);
 	}
 
-	/**
-	 * Return a list of days for a month and a year given.
-	 * 
-	 * @param month
-	 * @param year
-	 * @return listOfDays
-	 * @throws IOException
-	 */
-	public Set<Date> listOfDateForAMonth(int month, int year)
+	public Set<Date> getAllDatesInAMonthOfOneYear(int month, int year)
 			throws IOException
-	{
-		// TODO 
+	{ 
 		Date firstDayOfMonth = new Date(year, month, 1);
 		int nbDaysInMonth = 0;
 		if (month == 2)
@@ -61,7 +52,7 @@ public class Calendar
 
 	public void setListOfDateForAMonth(int month, int year) throws IOException
 	{
-		this.listOfDateForAMonth = listOfDateForAMonth(month, year);
+		this.listOfDateForAMonth = getAllDatesInAMonthOfOneYear(month, year);
 	}
 	
 	public int getDayOfWeekForFirstDayOfMonth(){
