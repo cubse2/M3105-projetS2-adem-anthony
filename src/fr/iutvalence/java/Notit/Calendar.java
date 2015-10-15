@@ -26,6 +26,19 @@ public class Calendar
 	public Set<Date> getAllDatesInAMonthOfOneYear(int month, int year)
 			throws IOException
 	{ 
+		int nbDaysInMonth = getNumberDaysInAMonth(month, year);
+		int nbDay = 1;
+		SortedSet<Date> listOfDays = new TreeSet<Date>();
+		while (nbDay <= nbDaysInMonth)
+		{
+			listOfDays.add(new Date(year, month, nbDay));
+			nbDay++;
+		}
+		return listOfDays;
+	}
+
+	private int getNumberDaysInAMonth(int month, int year) throws IOException
+	{
 		Date firstDayOfMonth = new Date(year, month, 1);
 		int nbDaysInMonth = 0;
 		if (month == 2)
@@ -35,14 +48,7 @@ public class Calendar
 		{
 			nbDaysInMonth = firstDayOfMonth.getActualMaximum(GregorianCalendar.DAY_OF_MONTH);
 		}
-		int nbDay = 1;
-		SortedSet<Date> listOfDays = new TreeSet<Date>();
-		while (nbDay <= nbDaysInMonth)
-		{
-			listOfDays.add(new Date(year, month, nbDay));
-			nbDay++;
-		}
-		return listOfDays;
+		return nbDaysInMonth;
 	}
 
 	public Set<Date> getListOfDateForAMonth()
