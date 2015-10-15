@@ -117,8 +117,8 @@ public class DayPanel extends JPanel implements ActionListener{
 	public void displayDayNotePanel() throws IOException{
 		this.setVisible(false);
 		this.notePanel.removeAll();
-		this.theDate.updateListOfNote();
-		for(DayNote dayNote : this.theDate.getListOfNote()){
+		this.theDate.updateNotesCollection();
+		for(DayNote dayNote : this.theDate.getCollectionOfNote()){
 			this.notePanel.add(new NotePanel(dayNote, this, this.theFrame));
 		}
 		this.notePanel.revalidate();

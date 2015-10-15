@@ -15,71 +15,45 @@ import java.util.Set;
 public class Date extends GregorianCalendar
 {
 
-	/**
-	 * A list of note.
-	 */
-	private Set<DayNote> listOfNote;
-	
-	/**
-	 * The name of the day.
-	 */
+	private Set<DayNote> collectionOfNote;
 	private String dayName;
-	
-	/**
-	 * The name of the month.
-	 */
 	private String monthName;
 
 	/**
-	 * The Date's constructor.
-	 * 
-	 * @param year
-	 * @param month
-	 * @param day
+	 * create a date with its collection of note 
 	 */
 	public Date(int year, int month, int day) throws IOException
 	{
 		super(year, month, day);
-		this.listOfNote = new NoteList(this).getlistOfDayNote();
-		this.searchName();
+		this.collectionOfNote = new NoteList(this).getlistOfDayNote();
+		this.searchDayAndMonthName();
 	}
 
 	/**
-	 * The Date's constructor to know the date of the day.
+	 * create a current date with its collection of note
 	 */
 	public Date() throws IOException
 	{
 		super();
-		this.listOfNote = new NoteList(this).getlistOfDayNote();
-		this.searchName();
+		this.collectionOfNote = new NoteList(this).getlistOfDayNote();
+		this.searchDayAndMonthName();
 	}
 	
-	/**
-	 * Define the day and month name.
-	 */
-	private void searchName()
+	private void searchDayAndMonthName()
 	{
-		DateFormatSymbols formatSymbol = new DateFormatSymbols(Locale.ENGLISH); // elementInYear = English date format
+		DateFormatSymbols formatSymbol = new DateFormatSymbols(Locale.ENGLISH);
 		String[] daysName = formatSymbol.getWeekdays();
 		this.dayName = daysName[this.get(DAY_OF_WEEK)];
 		String[] monthsName = formatSymbol.getMonths();
 		this.monthName = monthsName[this.get(MONTH)];
 	}
 	
-	/**
-	 * Update the list of note.
-	 * @throws IOException
-	 */
-	public void updateListOfNote() throws IOException{
-		this.listOfNote = new NoteList(this).getlistOfDayNote();
+	public void updateNotesCollection() throws IOException{
+		this.collectionOfNote = new NoteList(this).getlistOfDayNote();
 	}
 	
-	/**
-	 * Getter to get the list of note
-	 * @return Set<DayNote>
-	 */
-	public Set<DayNote> getListOfNote() {
-		return listOfNote;
+	public Set<DayNote> getCollectionOfNote() {
+		return collectionOfNote;
 	}
 	
 	/**
@@ -98,12 +72,10 @@ public class Date extends GregorianCalendar
 		return this.get(YEAR) + "-" + this.get(MONTH) + "-" + this.get(DAY_OF_MONTH);
 	}
 	
-	/**
-	 * Displays the date and the list of date attached.
-	 */
+
 	public String toString()
 	{
 		return this.get(DAY_OF_MONTH) + "/" + this.get(MONTH) + "/"
-				+ this.get(YEAR) + " : " + this.listOfNote.size();
+				+ this.get(YEAR) + " : " + this.collectionOfNote.size();
 	}
 }
