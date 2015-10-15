@@ -109,14 +109,14 @@ public class MonthPanel extends JPanel implements ActionListener{
 		
 		for(int numberCase=0; numberCase<42; numberCase++){ 
 			// create 42 buttons, disable useless button for the month and display the number of the day.
-			if (numberCase == theCalendar.getFirstDay()-1)
+			if (numberCase == theCalendar.getDayOfWeekForFirstDayOfMonth()-1)
 			{ 
 				this.tableButton[numberCase]=new MyButton(Integer.toString(numberDay), numberDay);
 				this.tableButton[numberCase].addActionListener(this);
 				this.panelOfDaysButton.add(tableButton[numberCase]);
 				numberDay++;
 			} 
-			else if(numberCase<theCalendar.getFirstDay()-1)
+			else if(numberCase<theCalendar.getDayOfWeekForFirstDayOfMonth()-1)
 			{
 				this.tableButton[numberCase]=new MyButton();
 				this.tableButton[numberCase].setEnabled(false);

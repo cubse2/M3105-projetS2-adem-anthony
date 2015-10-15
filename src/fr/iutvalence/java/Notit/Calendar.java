@@ -6,27 +6,13 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-/**
- * The class calendar.
- * 
- * @author G19
- */
-
 public class Calendar
 {
-	/**
-	 * The list of date for a month.
-	 */
 	private Set<Date> listOfDateForAMonth;
-	
-	/**
-	 * the month number.
-	 */
 	private int monthNumber;
 
 	/**
-	 * The Calendar's constructor.
-	 * 
+	 * Create calendar for a month of one year.
 	 * @param month
 	 * @param year
 	 * @throws IOException
@@ -48,6 +34,7 @@ public class Calendar
 	public Set<Date> listOfDateForAMonth(int month, int year)
 			throws IOException
 	{
+		// TODO 
 		Date firstDayOfMonth = new Date(year, month, 1);
 		int nbDaysInMonth = 0;
 		if (month == 2)
@@ -67,34 +54,18 @@ public class Calendar
 		return listOfDays;
 	}
 
-	/**
-	 * Getter to get list of date for a month.
-	 * 
-	 * @return listOfDateForAMonth
-	 */
 	public Set<Date> getListOfDateForAMonth()
 	{
 		return listOfDateForAMonth;
 	}
 
-	/**
-	 * Setter to set list of date for a month.
-	 * 
-	 * @param month
-	 * @param year
-	 * @throws IOException
-	 */
 	public void setListOfDateForAMonth(int month, int year) throws IOException
 	{
 		this.listOfDateForAMonth = listOfDateForAMonth(month, year);
 	}
 	
-	/**
-	 * Return the day number of the first day.
-	 * @return
-	 */
-	public int getFirstDay(){
-		for (Date date : listOfDateForAMonth)
+	public int getDayOfWeekForFirstDayOfMonth(){
+		for (Date date : this.listOfDateForAMonth)
 		{
 			if (date.get(Date.DAY_OF_MONTH) == 1){
 				return date.get(Date.DAY_OF_WEEK);
@@ -103,17 +74,10 @@ public class Calendar
 		return 0;
 	}
 	
-	/**
-	 * Getter to get the month number.
-	 * @return
-	 */
 	public int getMonthNumber() {
 		return monthNumber;
 	}
 
-	/**
-	 * Displays the list of date for a month.
-	 */
 	public String toString()
 	{
 		final StringBuilder result = new StringBuilder();
