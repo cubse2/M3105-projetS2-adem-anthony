@@ -38,7 +38,7 @@ public class Application {
 	}
 	
 	public void deleteDayNote(DayNote dayNote) throws IOException{
-		dayNote.deleteNote();
+		dayNote.deleteDayNote();
 	}
 	
 	public void deleteGeneralNote(GeneralNote generalNote) throws IOException{

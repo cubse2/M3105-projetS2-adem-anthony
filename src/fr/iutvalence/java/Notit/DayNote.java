@@ -4,11 +4,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-/**
- * Note of the day.
- * 
- * @author G19
- */
 public class DayNote extends Note
 {
 	/**
@@ -17,12 +12,7 @@ public class DayNote extends Note
 	Date date;
 
 	/**
-	 * DayNote's constructor.
-	 * 
-	 * @param number
-	 * @param title
-	 * @param content
-	 * @param date
+	 * create a Note and attached a date
 	 */
 	public DayNote(int number, String title, String content, Date date)
 	{
@@ -32,9 +22,6 @@ public class DayNote extends Note
 	
 	/**
 	 * To create or edit a day note. 
-	 * If the path doesn't exist it's created. 
-	 * If the note exist, it's rewrite
-	 * Else it's created. 
 	 * @throws IOException
 	 */
 	public void editNote() throws IOException {
@@ -44,16 +31,13 @@ public class DayNote extends Note
 		if (!Path.checkPath(path))
 			Path.createPath(path);
 		file = new File(path+"/"+this.number);
-		file.createNewFile();
+		file.createNewFile();		
 	 	write = new FileWriter(file);
 		write.write(this.number+"\r"+this.title+"\r"+this.content+"\r");
 		write.close();
 	 }
 	
-	/**
-	 * To delete a day note.
-	 */
-	public void deleteNote(){
+	public void deleteDayNote(){
 		String path = "Notes/"+this.date.getDate()+"/"+this.number;
 		if(Path.checkPath(path)){
 			File file = new File(path);
@@ -61,10 +45,6 @@ public class DayNote extends Note
 		}
 	}
 
-	/**
-	 * return the date attached. 
-	 * @return a Date
-	 */
 	public Date getDate() {
 		return date;
 	}
