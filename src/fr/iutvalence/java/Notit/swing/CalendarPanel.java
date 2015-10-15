@@ -104,7 +104,7 @@ public class CalendarPanel extends JPanel implements ActionListener{
 			{
 				try {
 					
-					this.theFrame.setContentPane(new MonthPanel(this.theFrame.getApplication().getCalendar(x), this.theFrame));
+					this.theFrame.setContentPane(new MonthPanel(this.theFrame.getApplication().getCalendarOfAMonth(x), this.theFrame));
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

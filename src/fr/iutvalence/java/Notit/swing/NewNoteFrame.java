@@ -138,7 +138,7 @@ public class NewNoteFrame extends JFrame implements ActionListener{
 		if(e.getSource()==this.addNoteButton)
 			if(this.date==null){ // if no date = GeneralNote 
 				try {
-					this.theFrame.getApplication().createGNotes(this.titleText.getText(), this.contentsText.getText());
+					this.theFrame.getApplication().createGeneralNote(this.titleText.getText(), this.contentsText.getText());
 					this.dispose();
 					this.theFrame.getHomePage().displayGeneralNote();
 					
@@ -150,7 +150,7 @@ public class NewNoteFrame extends JFrame implements ActionListener{
 				if(this.panel==null) // if no panel = dayNote of the HomePagePanel
 				{
 					try {
-						this.theFrame.getApplication().createDayNotes(this.titleText.getText(), this.contentsText.getText(), this.date);
+						this.theFrame.getApplication().createDayNote(this.titleText.getText(), this.contentsText.getText(), this.date);
 						this.dispose();
 						this.theFrame.getHomePage().displayDayNote();
 					} catch (IOException e1) {
@@ -159,7 +159,7 @@ public class NewNoteFrame extends JFrame implements ActionListener{
 				}
 				else{
 					try { // dayNote of the DayPanel
-						this.theFrame.getApplication().createDayNotes(this.titleText.getText(), this.contentsText.getText(), this.date);
+						this.theFrame.getApplication().createDayNote(this.titleText.getText(), this.contentsText.getText(), this.date);
 						this.dispose();
 						this.theFrame.getHomePage().displayDayNote();
 						this.panel.displayDayNotePanel();

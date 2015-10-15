@@ -164,7 +164,7 @@ public class EditNoteFrame extends JFrame implements ActionListener{
 		if(e.getSource()==this.editNoteButton)
 			if(this.generalNote!=null){
 				try { // if we are on the HomePagePanel for GeneralNote
-					this.theFrame.getApplication().editGNotes(this.generalNote, this.titleText.getText(), this.contentsText.getText());
+					this.theFrame.getApplication().editExistingGeneralNote(this.generalNote, this.titleText.getText(), this.contentsText.getText());
 					this.dispose();
 					this.theFrame.getHomePage().displayGeneralNote();
 				} catch (IOException e1) {
@@ -175,7 +175,7 @@ public class EditNoteFrame extends JFrame implements ActionListener{
 				if(this.panel==null)
 				{
 					try { // if we are on the HomePagePanel for DayNote
-						this.theFrame.getApplication().editDayNotes(this.dayNote, titleText.getText(), contentsText.getText());
+						this.theFrame.getApplication().editExistingDayNote(this.dayNote, titleText.getText(), contentsText.getText());
 						this.dispose();
 						this.theFrame.getHomePage().displayDayNote();
 					} catch (IOException e1) {
@@ -184,7 +184,7 @@ public class EditNoteFrame extends JFrame implements ActionListener{
 				}
 				else{
 					try { // if we are on the DayPanel 
-						this.theFrame.getApplication().editDayNotes(this.dayNote, titleText.getText(), contentsText.getText());
+						this.theFrame.getApplication().editExistingDayNote(this.dayNote, titleText.getText(), contentsText.getText());
 						this.dispose();
 						this.panel.displayDayNotePanel();
 					} catch (IOException e1) {

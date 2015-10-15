@@ -158,7 +158,7 @@ public class NotePanel extends JPanel implements ActionListener{
 			if(jop==JOptionPane.YES_OPTION){
 				if( this.generalNote == null){ //if the Note is a DayNote 
 					try {
-						this.application.deleteDayNotes(this.dayNote); //delete DayNote
+						this.application.deleteDayNote(this.dayNote); //delete DayNote
 					} catch (IOException e2) {
 						// TODO Auto-generated catch block
 						e2.printStackTrace();
@@ -185,7 +185,7 @@ public class NotePanel extends JPanel implements ActionListener{
 				}
 				else{	// if the note is a GeneralNote
 					try {
-						this.application.deleteGNotes(this.generalNote);
+						this.application.deleteGeneralNote(this.generalNote);
 						this.theFrame.getHomePage().displayGeneralNote();
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
